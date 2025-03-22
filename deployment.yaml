@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seelandcenter
+  namespace: seelandcenter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seelandcenter
+  template:
+    metadata:
+      labels:
+        app: seelandcenter
+    spec:
+      containers:
+        - name: seelandcenter
+          image: ghcr.io/themane04/seelandcenter:v1
+          ports:
+            - containerPort: 80
